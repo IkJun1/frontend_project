@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마이페이지 - STYLE</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/mypage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo"><a href="index.html">STYLE</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html">홈</a></li>
+                <li><a href="brands.html">신상품</a></li>
+                <li><a href="#new">브랜드</a></li>
+                <li><a href="#sale">세일</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="#search"><i class="fas fa-search"></i></a>
+                <a href="#cart" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+                <div class="auth-section">
+                    <!-- 로그인하지 않은 상태 -->
+                    <div class="auth-not-logged-in">
+                        <a href="login.html" class="login-btn"><i class="fas fa-sign-in-alt"></i>로그인</a>
+                    </div>
+                    <!-- 로그인한 상태 -->
+                    <div class="auth-logged-in" style="display: none;">
+                        <div class="user-dropdown">
+                            <button class="user-info-btn">
+                                <i class="fas fa-user-circle"></i>
+                                <span class="username">사용자</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="mypage.html"><i class="fas fa-user"></i> 마이페이지</a>
+                                <a href="#orders"><i class="fas fa-box"></i> 주문내역</a>
+                                <button class="logout-btn"><i class="fas fa-sign-out-alt"></i> 로그아웃</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="mypage-container">
+        <div class="mypage-sidebar">
+            <div class="user-info">
+                <div class="user-avatar">
+                    <img src="https://via.placeholder.com/100" alt="프로필 이미지">
+                </div>
+                <h3>홍길동</h3>
+                <p>hong@example.com</p>
+            </div>
+            <nav class="mypage-nav">
+                <a href="#orders" class="active">주문 내역</a>
+                <a href="#wishlist">위시리스트</a>
+                <a href="#reviews">리뷰 관리</a>
+                <a href="#address">배송지 관리</a>
+                <a href="#settings">계정 설정</a>
+            </nav>
+        </div>
+
+        <div class="mypage-content">
+            <section id="orders" class="content-section active">
+                <h2>주문 내역</h2>
+                <div class="order-list">
+                    <div class="order-card">
+                        <div class="order-header">
+                            <span class="order-date">2024-03-15</span>
+                            <span class="order-status">배송완료</span>
+                        </div>
+                        <div class="order-items">
+                            <div class="order-item">
+                                
+                            </div>
+                        </div>
+                        <div class="order-actions">
+                            <button class="btn-secondary">배송조회</button>
+                            <button class="btn-primary">리뷰작성</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="wishlist" class="content-section">
+                <h2>위시리스트</h2>
+                <div class="wishlist-grid">
+                    <div class="wishlist-item">
+                        <img src="https://via.placeholder.com/200" alt="상품 이미지">
+                        <h4>베이직 티셔츠</h4>
+                        <p class="price">₩29,000</p>
+                        <div class="wishlist-actions">
+                            <button class="btn-primary">장바구니 담기</button>
+                            <button class="btn-secondary">삭제</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="reviews" class="content-section">
+                <h2>리뷰 관리</h2>
+                <div class="review-list">
+                    <div class="review-card">
+                        <div class="review-header">
+                            <img src="https://via.placeholder.com/50" alt="상품 이미지">
+                            <div class="review-info">
+                                <h4>클래식 코트</h4>
+                                <div class="rating">★★★★★</div>
+                            </div>
+                        </div>
+                        <p class="review-content">
+                            품질이 정말 좋고 사이즈도 딱 맞아요. 다음에도 구매할 예정입니다.
+                        </p>
+                        <div class="review-actions">
+                            <button class="btn-secondary">수정</button>
+                            <button class="btn-secondary">삭제</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="address" class="content-section">
+                <h2>배송지 관리</h2>
+                <div class="address-list">
+                    <div class="address-card">
+                        <div class="address-info">
+                            <h4>기본 배송지</h4>
+                            <p class="recipient">홍길동</p>
+                            <p class="phone">010-1234-5678</p>
+                            <p class="address">서울시 강남구 테헤란로 123</p>
+                            <p class="address-detail">123동 456호</p>
+                        </div>
+                        <div class="address-actions">
+                            <button class="btn-secondary">수정</button>
+                            <button class="btn-secondary">삭제</button>
+                        </div>
+                    </div>
+                    <button class="btn-primary add-address">+ 새 배송지 추가</button>
+                </div>
+            </section>
+
+            <section id="settings" class="content-section">
+                <h2>계정 설정</h2>
+                <div class="settings-form">
+                    <div class="form-group">
+                        <label>프로필 이미지</label>
+                        <div class="profile-image-upload">
+                            <img src="https://via.placeholder.com/100" alt="프로필 이미지">
+                            <button class="btn-secondary">이미지 변경</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>이름</label>
+                        <input type="text" value="홍길동">
+                    </div>
+                    <div class="form-group">
+                        <label>이메일</label>
+                        <input type="email" value="hong@example.com" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>전화번호</label>
+                        <input type="tel" value="010-1234-5678">
+                    </div>
+                    <div class="form-group">
+                        <label>비밀번호 변경</label>
+                        <input type="password" placeholder="현재 비밀번호">
+                        <input type="password" placeholder="새 비밀번호">
+                        <input type="password" placeholder="새 비밀번호 확인">
+                    </div>
+                    <div class="form-group">
+                        <label>알림 설정</label>
+                        <div class="notification-settings">
+                            <label>
+                                <input type="checkbox" checked> 주문/배송 알림
+                            </label>
+                            <label>
+                                <input type="checkbox" checked> 프로모션 알림
+                            </label>
+                            <label>
+                                <input type="checkbox" checked> 리뷰 알림
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn-primary">저장하기</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>고객 서비스</h4>
+                <ul>
+                    <li><a href="#contact">문의하기</a></li>
+                    <li><a href="#shipping">배송 안내</a></li>
+                    <li><a href="#returns">교환/반품</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>회사 정보</h4>
+                <ul>
+                    <li><a href="#about">회사 소개</a></li>
+                    <li><a href="#terms">이용약관</a></li>
+                    <li><a href="#privacy">개인정보처리방침</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 STYLE. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../javascript/mypage.js"></script>
+    <script src="../javascript/script.js"></script>
+</body>
+</html> 

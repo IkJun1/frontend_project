@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주문 테스트 페이지</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            background: #f9f9f9;
+        }
+        
+        .product-card h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .product-card .price {
+            color: #e74c3c;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 5px;
+        }
+        
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #545b62;
+        }
+        
+        .order-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #e9ecef;
+            border-radius: 8px;
+        }
+        
+        .order-list {
+            margin-top: 20px;
+        }
+        
+        .order-item {
+            background: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border-left: 4px solid #28a745;
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            z-index: 1000;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .notification.success {
+            background-color: #28a745;
+        }
+        
+        .notification.error {
+            background-color: #dc3545;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🛒 주문 테스트 페이지</h1>
+        
+        <div class="product-grid">
+            <div class="product-card">
+                <h3>클래식 코트</h3>
+                <p class="price">₩89,000</p>
+                <button class="btn btn-primary order-btn" data-product="클래식 코트" data-price="89000">주문하기</button>
+            </div>
+            
+            <div class="product-card">
+                <h3>베이직 티셔츠</h3>
+                <p class="price">₩29,000</p>
+                <button class="btn btn-primary order-btn" data-product="베이직 티셔츠" data-price="29000">주문하기</button>
+            </div>
+            
+            <div class="product-card">
+                <h3>데님 자켓</h3>
+                <p class="price">₩69,000</p>
+                <button class="btn btn-primary order-btn" data-product="데님 자켓" data-price="69000">주문하기</button>
+            </div>
+        </div>
+        
+        <div class="order-section">
+            <h2>📋 주문 내역</h2>
+            <button class="btn btn-secondary" onclick="loadOrders()">주문 내역 새로고침</button>
+            <div class="order-list" id="orderList">
+                <p>주문 내역을 불러오는 중...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 알림 표시 함수
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 100);
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // 주문하기 함수
+        async function orderProduct(productName, price) {
+            try {
+                const response = await fetch('/order', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    credentials: 'include',
+                    body: JSON.stringify({
+                        product: productName,
+                        price: price
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.status === 201) {
+                    showNotification(`${productName} 주문이 완료되었습니다!`, 'success');
+                    loadOrders(); // 주문 내역 새로고침
+                    return true;
+                } else if (data.status === 401) {
+                    showNotification('로그인이 필요합니다.', 'error');
+                    // 로그인 페이지로 리다이렉트 (필요시)
+                    // window.location.href = '/html/login.html';
+                    return false;
+                } else {
+                    showNotification(data.error || '주문 처리 중 오류가 발생했습니다.', 'error');
+                    return false;
+                }
+            } catch (error) {
+                console.error('주문 요청 오류:', error);
+                showNotification('서버 연결 중 오류가 발생했습니다.', 'error');
+                return false;
+            }
+        }
+
+        // 주문 내역 불러오기 함수
+        async function loadOrders() {
+            try {
+                const response = await fetch('/check', {
+                    method: 'GET',
+                    credentials: 'include'
+                });
+
+                const data = await response.json();
+                const orderList = document.getElementById('orderList');
+
+                if (data.status === 200) {
+                    const products = data.Products;
+                    
+                    if (products.length === 0) {
+                        orderList.innerHTML = '<p>주문 내역이 없습니다.</p>';
+                    } else {
+                        orderList.innerHTML = products.map((productArray, index) => {
+                            const productName = productArray[0];
+                            return `
+                                <div class="order-item">
+                                    <strong>주문 ${index + 1}:</strong> ${productName}
+                                    <small style="float: right; color: #666;">방금 전</small>
+                                </div>
+                            `;
+                        }).join('');
+                    }
+                } else if (data.status === 401) {
+                    orderList.innerHTML = '<p style="color: red;">로그인이 필요합니다.</p>';
+                } else {
+                    orderList.innerHTML = '<p style="color: red;">주문 내역을 불러오는데 실패했습니다.</p>';
+                }
+            } catch (error) {
+                console.error('주문 내역 로드 오류:', error);
+                document.getElementById('orderList').innerHTML = '<p style="color: red;">서버 연결 중 오류가 발생했습니다.</p>';
+            }
+        }
+
+        // 페이지 로드 시 실행
+        document.addEventListener('DOMContentLoaded', function() {
+            // 주문 버튼들에 이벤트 리스너 추가
+            document.querySelectorAll('.order-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productName = this.dataset.product;
+                    const price = parseInt(this.dataset.price);
+                    
+                    if (confirm(`${productName}을(를) 주문하시겠습니까?\n가격: ₩${price.toLocaleString()}`)) {
+                        orderProduct(productName, price);
+                    }
+                });
+            });
+            
+            // 초기 주문 내역 로드
+            loadOrders();
+        });
+    </script>
+</body>
+</html>

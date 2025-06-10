@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 - 로고이름</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="logo">로고이름</div>
+            <h2>회원가입</h2>
+            <form id="signupForm" class="auth-form">
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="이메일" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="username" placeholder="아이디" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" placeholder="비밀번호" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="passwordConfirm" placeholder="비밀번호 확인" required>
+                </div>
+                <div class="form-options">
+                    <label>
+                        <input type="checkbox" id="terms" required>
+                        이용약관에 동의합니다
+                    </label>
+                    <label>
+                        <input type="checkbox" id="privacy" required>
+                        개인정보 수집 및 이용에 동의합니다
+                    </label>
+                </div>
+                <button type="submit" class="auth-button">회원가입</button>
+                <div class="auth-divider">
+                    <span>또는</span>
+                </div>
+                <div class="social-login">
+                    <button type="button" class="social-button kakao">
+                        <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png" alt="카카오 회원가입">
+                        카카오로 회원가입
+                    </button>
+                    <button type="button" class="social-button google">
+                        <img src="https://www.google.com/favicon.ico" alt="구글 회원가입">
+                        구글로 회원가입
+                    </button>
+                </div>
+            </form>
+            <p class="auth-switch">
+                이미 계정이 있으신가요? <a href="login.html">로그인</a>
+            </p>
+        </div>
+    </div>
+    <script src="../javascript/signup.js"></script>
+</body>
+</html> 

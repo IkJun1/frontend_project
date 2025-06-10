@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로고이름 - 패션 스토어</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo"><a href="index.html">STYLE</a></div>
+            <ul class="nav-links">
+                <li><a href="#home">홈</a></li>
+                <li><a href="#new">신상품</a></li>
+                <li><a href="#best">베스트</a></li>
+                <li><a href="#sale">세일</a></li>
+            </ul>            
+            <div class="nav-icons">
+                <a href="#search"><i class="fas fa-search"></i></a>
+                <a href="#cart" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+                <div class="auth-section">
+                    <!-- 로그인하지 않은 상태 -->
+                    <div class="auth-not-logged-in">
+                        <a href="login.html" class="login-btn"><i class="fas fa-sign-in-alt"></i>로그인</a>
+                    </div>
+                    <!-- 로그인한 상태 -->
+                    <div class="auth-logged-in" style="display: none;">
+                        <div class="user-dropdown">
+                            <button class="user-info-btn">
+                                <i class="fas fa-user-circle"></i>
+                                <span class="username">사용자</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="mypage.html"><i class="fas fa-user"></i> 마이페이지</a>
+                                <a href="#orders"><i class="fas fa-box"></i> 주문내역</a>
+                                <button class="logout-btn"><i class="fas fa-sign-out-alt"></i> 로그아웃</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>새로운 스타일의 시작</h1>
+                <p>당신만의 특별한 스타일을 찾아보세요</p>
+                <button class="cta-button" onclick="window.location.href='./brands.html'">쇼핑하기</button>
+            </div>
+        </section>
+
+        <section class="featured-products">
+            <h2>인기 상품</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x400" alt="상품 이미지">
+                    <h3>클래식 코트</h3>
+                    <p class="price">₩89,000</p>
+                    <button class="add-to-cart">장바구니에 담기</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x400" alt="상품 이미지">
+                    <h3>베이직 티셔츠</h3>
+                    <p class="price">₩29,000</p>
+                    <button class="add-to-cart">장바구니에 담기</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x400" alt="상품 이미지">
+                    <h3>데님 자켓</h3>
+                    <p class="price">₩69,000</p>
+                    <button class="add-to-cart">장바구니에 담기</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>고객 서비스</h4>
+                <ul>
+                    <li><a href="#contact">문의하기</a></li>
+                    <li><a href="#shipping">배송 안내</a></li>
+                    <li><a href="#returns">교환/반품</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>회사 정보</h4>
+                <ul>
+                    <li><a href="#about">회사 소개</a></li>
+                    <li><a href="#terms">이용약관</a></li>
+                    <li><a href="#privacy">개인정보처리방침</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 STYLE. All rights reserved.</p>
+        </div>
+    </footer>    <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script>
+    <script src="../javascript/script.js"></script>
+</body>
+</html>

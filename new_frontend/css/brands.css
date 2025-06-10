@@ -1,0 +1,163 @@
+.brands-container {
+    padding: 2rem 5%;
+    margin-top: 60px;
+}
+
+.brands-container h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.brand-search {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.brand-search input {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.brand-search input:focus {
+    border-color: #666;
+    outline: none;
+}
+
+.brand-categories {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.category-btn {
+    padding: 0.8rem 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    background-color: white;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-btn:hover {
+    background-color: #f5f5f5;
+}
+
+.category-btn.active {
+    background-color: #333;
+    color: white;
+    border-color: #333;
+}
+
+.brand-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+.brand-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.brand-card:hover {
+    transform: translateY(-5px);
+}
+
+.brand-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.brand-card h3 {
+    padding: 1rem;
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.brand-card p {
+    padding: 0 1rem 1rem;
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* 검색 결과 없음 메시지 스타일 */
+.no-results-message {
+    grid-column: 1 / -1; /* 그리드 전체 너비 차지 */
+}
+
+.no-results-content {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.no-results-content i {
+    font-size: 48px;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.no-results-content h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.no-results-content p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.no-results-content p:last-child {
+    color: #888;
+    font-size: 14px;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .brands-container {
+        padding: 1rem;
+    }
+
+    .brands-container h1 {
+        font-size: 2rem;
+    }
+
+    .brand-categories {
+        gap: 0.5rem;
+    }
+
+    .category-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .brand-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .brand-grid {
+        grid-template-columns: 1fr;
+    }
+} 

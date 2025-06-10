@@ -1,0 +1,507 @@
+.mypage-container {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem 5%;
+    margin-top: 60px;
+    min-height: calc(100vh - 60px);
+    background-color: #f5f5f5;
+}
+
+.mypage-sidebar {
+    width: 280px;
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+}
+
+.user-info {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.user-avatar {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-info h3 {
+    margin: 0;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.user-info p {
+    margin: 0.5rem 0 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.mypage-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.mypage-nav a {
+    padding: 0.8rem 1rem;
+    color: #666;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.mypage-nav a:hover {
+    background-color: #f5f5f5;
+}
+
+.mypage-nav a.active {
+    background-color: #333;
+    color: white;
+}
+
+.mypage-content {
+    flex: 1;
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+.content-section h2 {
+    margin: 0 0 2rem;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+/* 주문 내역 스타일 */
+.order-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.order-header {
+    padding: 1rem;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-date {
+    color: #666;
+}
+
+.order-status {
+    color: #333;
+    font-weight: 500;
+}
+
+.order-items {
+    padding: 1rem;
+}
+
+.order-item {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.order-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.item-info h4 {
+    margin: 0 0 0.5rem;
+    color: #333;
+}
+
+.item-info p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.order-actions {
+    padding: 1rem;
+    border-top: 1px solid #ddd;
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+/* 위시리스트 스타일 */
+.wishlist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.wishlist-item {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.wishlist-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.wishlist-item h4 {
+    padding: 1rem;
+    margin: 0;
+    color: #333;
+}
+
+.wishlist-item .price {
+    padding: 0 1rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.wishlist-actions {
+    padding: 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* 리뷰 관리 스타일 */
+.review-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.review-header {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.review-header img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.review-info h4 {
+    margin: 0 0 0.5rem;
+    color: #333;
+}
+
+.rating {
+    color: #ffd700;
+}
+
+.review-content {
+    color: #666;
+    margin: 0 0 1rem;
+}
+
+.review-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+}
+
+/* 버튼 스타일 */
+.btn-primary,
+.btn-secondary {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #333;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.btn-primary:hover {
+    background-color: #555;
+}
+
+.btn-secondary:hover {
+    background-color: #e5e5e5;
+}
+
+/* 배송지 관리 스타일 */
+.address-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.address-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.address-info h4 {
+    margin: 0 0 1rem;
+    color: #333;
+}
+
+.address-info p {
+    margin: 0.3rem 0;
+    color: #666;
+}
+
+.address-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.add-address {
+    margin-top: 1rem;
+    width: 100%;
+}
+
+/* 계정 설정 스타일 */
+.settings-form {
+    max-width: 600px;
+}
+
+.settings-form .form-group {
+    margin-bottom: 2rem;
+}
+
+.settings-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.settings-form input[type="text"],
+.settings-form input[type="email"],
+.settings-form input[type="tel"],
+.settings-form input[type="password"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+}
+
+.settings-form input[readonly] {
+    background-color: #f5f5f5;
+}
+
+.profile-image-upload {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profile-image-upload img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.notification-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.notification-settings label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: normal;
+}
+
+.form-actions {
+    margin-top: 2rem;
+}
+
+/* 모달 스타일 */
+.address-modal,
+.settings-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-content h3 {
+    margin: 0 0 1.5rem;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.address-form,
+.settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.search-address {
+    margin-top: 0.5rem;
+}
+
+/* 알림 스타일 */
+/*.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    animation: slideIn 0.3s ease-out;
+    z-index: 1000;
+}*/
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .mypage-container {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .mypage-sidebar {
+        width: 100%;
+    }
+
+    .wishlist-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .address-card {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .address-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .profile-image-upload {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .modal-content {
+        padding: 1.5rem;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+
+    .modal-actions button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .mypage-content {
+        padding: 1rem;
+    }
+
+    .order-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .order-actions {
+        flex-direction: column;
+    }
+
+    .wishlist-actions {
+        flex-direction: column;
+    }
+
+    .settings-form input[type="text"],
+    .settings-form input[type="email"],
+    .settings-form input[type="tel"],
+    .settings-form input[type="password"] {
+        font-size: 0.9rem;
+    }
+
+    .modal-content {
+        padding: 1rem;
+    }
+
+    .modal-content h3 {
+        font-size: 1.2rem;
+    }
+} 
